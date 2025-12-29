@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Blue Diary 💙</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+
+        :root {
+            --biru-muda: #e0f2fe;
+            --biru-cerah: #38bdf8;
+            --biru-tua: #0369a1;
+            --putih: #ffffff;
+            --pink: #fda4af;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--biru-muda);
+            color: var(--biru-tua);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Mencegah scroll karena ada animasi awan */
+            position: relative;
+        }
+
+        /* --- BACKGROUND ANIMASI --- */
+        .bg-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.6;
+            animation: moveClouds 20s linear infinite;
+        }
+
+        @keyframes moveClouds {
+            from { left: -10%; }
+            to { left: 110%; }
+        }
+
+        /* --- CONTAINER UTAMA --- */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 6px solid var(--biru-cerah);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- STYLING PASSWORD & TOMBOL --- */
+        h2 { margin-top: 10px; font-weight: 700; color: var(--biru-tua); }
+        
+        input {
+            width: 85%;
+            padding: 15px;
+            border-radius: 20px;
+            border: 3px dashed var(--biru-cerah);
+            margin: 20px 0;
+            outline: none;
+            text-align: center;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            color: var(--biru-tua);
+        }
+
+        .menu-btn {
+            background: var(--biru-cerah);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 0 #0ea5e9;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 0 #0ea5e9;
+            filter: brightness(1.1);
+        }
+
+        .menu-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #0ea5e9;
+        }
+
+        /* --- HALAMAN KONTEN --- */
+        #main-menu, .content-section { display: none; }
+
+        #timer {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 25px;
+            margin: 15px 0;
+            border: 2px solid var(--biru-muda);
+            line-height: 1.6;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .photo-box {
+            width: 100px;
+            height: 100px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            animation: float 3s infinite ease-in-out;
+            border: 2px solid var(--biru-muda);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .back-btn { background: var(--pink); box-shadow: 0 5px 0 #f43f5e; margin-top: 20px; }
+        .back-btn:hover { box-shadow: 0 8px 0 #f43f5e; }
+
+        .floating-heart {
+            position: absolute;
+            color: var(--pink);
+            font-size: 1.5rem;
+            animation: love 4s infinite linear;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        @keyframes love {
+            0% { transform: translateY(0) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-elements">
+        <div class="cloud" style="top: 10%; animation-delay: 0s;">☁️</div>
+        <div class="cloud" style="top: 30%; animation-delay: 5s;">✨</div>
+        <div class="cloud" style="top: 70%; animation-delay: 2s;">☁️</div>
+        <div class="cloud" style="top: 85%; animation-delay: 10s;">💙</div>
+    </div>
+
+    <div id="login-page" class="card">
+        <div style="font-size: 4rem; animation: float 3s infinite ease-in-out;">🎁</div>
+        <h2>Halo Sayanggg! 👋</h2>
+        <p>Ada kejutan kecil di dalam, masukkan password ya:</p>
+        <input type="password" id="passInput" placeholder="Tanggal jadian kita?">
+        <br>
+        <button class="menu-btn" onclick="cekPassword()">Buka Sekarang ✨</button>
+    </div>
+
+    <div id="main-menu" class="card">
+        <div style="font-size: 3rem;">📂</div>
+        <h2>Pilih Menu Cantik</h2>
+        <button class="menu-btn" onclick="showSection('waktu')">⏳ Lama Kita Kenal</button>
+        <button class="menu-btn" onclick="showSection('pesan')">💌 Pesan Rahasia</button>
+        <button class="menu-btn" onclick="showSection('memori')">📸 Memori Kita</button>
+        <button class="menu-btn back-btn" onclick="location.reload()">Keluar 🚪</button>
+    </div>
+
+    <div id="waktu" class="card content-section">
+        <h2>Setiap Detik Berarti.. ⏳</h2>
+        <div id="timer">Memuat momen indah...</div>
+        <p style="font-size: 0.9rem;">Sejak: 19 Agustus 2024</p>
+        <button class="menu-btn back-btn" onclick="backToMenu()">Kembali 🌸</button>
+    </div>
+
+    <div id="pesan" class="card content-section">
+        <h2>Surat Kecil 💌</h2>
+        <div style="text-align: left; background: #f0f9ff; padding: 20px; border-radius: 25px; border: 2px dashed var(--biru-cerah); line-height: 1.5;">
+            <p>Hai! Jujur ini kegabutan aku di malam hari, di sini aku mau bilang makasih ke kamu karena kamu udah mau terima aku apa adanya...</p>
+            <p>Aku seneng sekali dengan kehadiran kamu. Walaupun kita diterpa banyak badai, terimakasih sudah bertahan sama aku. <b>I LOVE YOU SAYANGG!</b> 💙</p>
+        </div>
+        <button class="menu-btn back-btn" onclick="backToMenu()">Kembali 🌸</button>
+    </div>
+
+    <div id="memori" class="card content-section">
+        <h2>Galeri Cinta 📸</h2>
+        <p>Momen lucu kita berdua:</p>
+        <div class="photo-container">
+            <div class="photo-box"><img src="foto 1.jpg" alt="Foto 1"></div>
+            <div class="photo-box" style="animation-delay: 0.2s;"><img src="foto 2.jpg" alt="Foto 2"></div>
+            <div class="photo-box" style="animation-delay: 0.4s;"><img src="foto 3.jpg" alt="Foto 3"></div>
+        </div>
+        <p style="margin-top: 20px; font-style: italic; font-weight: bold;">"Semoga kita abadi yaa ✨"</p>
+        <button class="menu-btn back-btn" onclick="backToMenu()">Kembali 🌸</button>
+    </div>
+
+    <script>
+        // Efek Hati Melayang
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("floating-heart");
+            heart.innerHTML = "💙";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 4000);
+        }
+        setInterval(createHeart, 800);
+
+        function cekPassword() {
+            const pass = document.getElementById('passInput').value;
+            if (pass === "121024") {
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-menu').style.display = 'block';
+                mulaiTimer();
+            } else {
+                alert("Passwordnya salah, coba lagi sayang! 😋");
+            }
+        }
+
+        function showSection(id) {
+            document.getElementById('main-menu').style.display = 'none';
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function backToMenu() {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            document.getElementById('main-menu').style.display = 'block';
+        }
+
+        function mulaiTimer() {
+            const tgl = new Date("August 19, 2024 00:00:00").getTime();
+            setInterval(() => {
+                const sekarang = new Date().getTime();
+                const s = sekarang - tgl;
+                const d = Math.floor(s / 1000);
+                const m = Math.floor(d / 60);
+                const h = Math.floor(m / 60);
+                const hari = Math.floor(h / 24);
+                
+                document.getElementById("timer").innerHTML = 
+                    `<b>${hari}</b> Hari <br> <b>${h%24}</b> Jam <b>${m%60}</b> Menit <b>${d%60}</b> Detik`;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
